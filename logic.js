@@ -90,7 +90,7 @@ function evaluator() {
     if (Math.abs(coordinateX - valuex) >= 0 && Math.abs(coordinateX - valuex) <= 10 && Math.abs(coordinateY - valuey) >= 0 && Math.abs(coordinateY - valuey) <= 10) {
         evaluation += randomNumber;
         positionGenerator();
-        document.querySelector(".part3 h2").textContent = "Score:" + evaluation;
+        document.querySelector(".part3 h2").textContent = "Score " + evaluation;
     }
 }
 
