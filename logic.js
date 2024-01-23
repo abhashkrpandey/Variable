@@ -3,12 +3,14 @@ let coordinateY = 0;
 let randomNumber = null;
 let valuex = 0;
 let valuey = 0;
-let collection = [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let collection = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 let start = false;
+let currentWidth=(parseFloat)(getComputedStyle(document.querySelector(".box")).width);
+let currentHeight=(parseFloat)(getComputedStyle(document.querySelector(".box")).height);
 let evaluation = 0;
-let positiveXRange = 800;
+let positiveXRange = currentWidth;
 let negativeRange = 0;
-let positiveYRange = 400;
+let positiveYRange = currentHeight;
 let count = "00";
 let timecounter = null;
 let setInterval_id;
@@ -62,16 +64,16 @@ function begins(start) {
 
 
 function positionGeneratorNull() {
-    coordinateX = Math.floor(Math.random() * 789);
-    coordinateY = Math.floor(Math.random() * 389);
-    randomNumber = collection[Math.floor(Math.random() * 21)];
+    coordinateX = Math.floor(Math.random() * currentWidth);
+    coordinateY = Math.floor(Math.random() * currentHeight);
+    randomNumber = collection[Math.floor(Math.random() * 11)];
     noGeneratorNull();
 }
 
 function positionGenerator() {
-    coordinateX = Math.floor(Math.random() * 789);
-    coordinateY = Math.floor(Math.random() * 389);
-    randomNumber = collection[Math.floor(Math.random() * 21)];
+    coordinateX = Math.floor(Math.random() * currentWidth);
+    coordinateY = Math.floor(Math.random() * currentHeight);
+    randomNumber = collection[Math.floor(Math.random() * 11)];
     noGenerator();
 }
 
@@ -98,7 +100,7 @@ function pointerMover() {
     document.addEventListener("keydown", pointerMoverFunc);
 }
 function pointerMoverFunc(e) {
-    if ((count >= 0) && valuex <= positiveXRange && valuex >= negativeRange && valuey <= 400 && valuey >= negativeRange) {
+    if ((count >= 0) && valuex <= positiveXRange && valuex >= negativeRange && valuey <= positiveYRange && valuey >= negativeRange) {
         if (e.key == "ArrowDown") {
 
             valuey += 8;
